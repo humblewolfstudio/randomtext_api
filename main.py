@@ -10,22 +10,7 @@ app = FastAPI()
 async def root():
     return RedirectResponse(url='/docs')
 
-@app.get("/getRandomText", tags=["Main API"], openapi_extra={
-    "requestBody": {
-        "content": {
-            "application/json": {
-                "schema": {
-                    "required": ["nPhrases", "lan"],
-                    "type": "object",
-                    "properties": {
-                        "nPhrases": {"type": "number"},
-                        "lan": {"type": "string"},
-                    }
-                }
-            }
-        },
-        "required": True,
-    }}, 
+@app.get("/getRandomText", tags=["Main API"], 
     responses={200: {"content": {"application/json": {"example": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla blandit risus vel lorem vulputate, vitae porttitor orci viverra. Fusce vitae consectetur arcu."]}}}, 500:{"content": {"application/json": {"example": {"detail":"Some values are incorrect (nPhrases is a Number and lan is a supported ISO language codes)"}}}}})
 def getRandomText(nPhrases: int, lan:str):
     code, response = generateText(nPhrases, lan)
