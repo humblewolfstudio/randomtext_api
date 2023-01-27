@@ -1,1 +1,0 @@
-{"id":"e58d0ca9-d4bc-4496-a807-7faa21c43b1b","space":49930,"runtime":"python3.9","name":"RandomText","path":"lsjwjl","project":"a0y4z23x","account":"144798365827","region":"eu-central-1","deps":["fastapi","wonderwords","googletrans==3.1.0a0"],"envs":null,"public":true,"log_level":"debug","cron":""}
